@@ -1,0 +1,13 @@
+.header__link {
+  text-decoration: none;
+  font-weight: 400;
+  transition: opacity 0.5s linear;
+}
+
+.header__link:hover {
+  opacity: 0.6;
+}
+
+.header__link:visited {
+  color: #FFF;
+}

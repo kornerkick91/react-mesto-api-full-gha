@@ -1,0 +1,15 @@
+.element__image {
+  display: block;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 282px;
+  cursor: pointer;
+  background-color: #000;
+  transition: opacity 0.25s linear, transform 0.25s linear;
+}
+
+.element__image:hover {
+  opacity: 0.9;
+  transform: scale(1.05, 1.05);
+}

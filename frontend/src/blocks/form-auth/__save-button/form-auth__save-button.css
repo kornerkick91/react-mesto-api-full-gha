@@ -1,0 +1,19 @@
+.form-auth__save-button {
+  background: #FFF;
+  border-radius: 2px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  height: 50px;
+  margin-top: 186px;
+  padding: 0;
+  border: none;
+  transition: opacity 0.5s linear;
+}
+
+.form-auth__save-button:hover {
+  opacity: 0.85;
+}

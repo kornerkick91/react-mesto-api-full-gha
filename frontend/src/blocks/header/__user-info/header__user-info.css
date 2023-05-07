@@ -1,0 +1,13 @@
+.header__user-info {
+  display: flex;
+  gap: 24px;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFF;
+}
+
+@media screen and (max-width: 907px) {
+  .header__user-info {
+    padding-right: 27px;
+  }
+}
