@@ -38,14 +38,15 @@ function App() {
     url: 'https://api.kornerkick91.nomoredomains.monster',
     headers: {
       'Content-Type': 'application/json',
-      authorization: `Bearer ${localStorage.getItem('token')}` || '',
+      authorization: `Bearer ${localStorage.getItem('jwt')}` || '',
     },
   });
 
 
   useEffect(() => {
-    if (localStorage.getItem('token')) {
-      auth.checkToken()
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      auth.checkToken(jwt)
         .then((res) => {
           if (res) {
             setLoggedIn(true);
@@ -60,7 +61,7 @@ function App() {
   const handleSignOut = () => {
     setLoggedIn(false);
     setEmail('');
-    localStorage.removeItem('token');
+    localStorage.removeItem('jwt');
   };
 
   useEffect(() => {
@@ -98,9 +99,9 @@ function App() {
     auth.authorize(email, password)
       .then((data) => {
         if (data.token) {
-          localStorage.setItem('token', data.token);
-          setEmail(email);
           setLoggedIn(true);
+          localStorage.setItem('jwt', data.token);
+          setEmail(email);
           navigate('/');
         }
       })
