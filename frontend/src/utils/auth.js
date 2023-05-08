@@ -35,12 +35,12 @@ class Auth {
     .then((response) => this._handleResponse(response));
   }
 
-  checkToken(token) {
+  checkToken() {
     return fetch(`${this._url}/users/me`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        authorization: `Bearer ${token}`,
+        authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     })
     .then((response) => this._handleResponse(response));
