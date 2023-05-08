@@ -48,5 +48,5 @@ class Auth {
 }
 
 export const auth = new Auth({
-  url: 'https://auth.nomoreparties.co',
+  url: 'https://api.kornerkick91.nomoredomains.monster',
 });
