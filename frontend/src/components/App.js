@@ -38,7 +38,7 @@ function App() {
     url: 'https://api.kornerkick91.nomoredomains.monster',
     headers: {
       'Content-Type': 'application/json',
-      authorization: `Bearer ${localStorage.getItem('jwt')}` || '',
+      authorization: `Bearer ${localStorage.getItem('jwt')}`,
     },
   });
 
@@ -99,9 +99,9 @@ function App() {
     auth.authorize(email, password)
       .then((data) => {
         if (data.token) {
-          setLoggedIn(true);
           localStorage.setItem('jwt', data.token);
           setEmail(email);
+          setLoggedIn(true);
           navigate('/');
         }
       })
