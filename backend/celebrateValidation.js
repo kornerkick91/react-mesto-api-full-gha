@@ -93,13 +93,13 @@ const signupValidation = {
       'string.password': 'Пароль должен содержать не менее 8 символов.',
       'any.required': 'Поле "Пароль" должно быть заполнено.'
     }),
-    name: Joi.string().required().min(2).max(30)
+    name: Joi.string().min(2).max(30)
       .messages({
         'string.min': 'Поле "Имя" должно содержать не менee 2 символов.',
         'string.max': 'Поле "Имя" должно содержать не болee 30 символов.',
         'any.required': 'Поле "Имя" должно быть заполнено.'
       }),
-    about: Joi.string().required().min(2).max(30)
+    about: Joi.string().min(2).max(30)
       .messages({
         'string.min': 'Поле "Род деятельности" должно содержать не менее 2 символов.',
         'string.max': 'Поле "Род деятельности" должно содержать не более 30 символов.',
