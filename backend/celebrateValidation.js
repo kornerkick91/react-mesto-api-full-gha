@@ -4,7 +4,7 @@ const { urlRegex } = require('./utils/constants');
 const getUserByIdValidation = {
   params: Joi.object({
     userId: Joi.string().hex().length(24).required()
-      .messages('Введен некорректный id.')
+      .message('Введен некорректный id.'),
   })
 };
 
@@ -27,7 +27,7 @@ const updateProfileValidation = {
 
 const updateAvatarValidation = {
   body: Joi.object({
-    avatar: Joi.string().regex(urlRegex).required().messages('Введена некорректная ссылка.')
+    avatar: Joi.string().regex(urlRegex).required().message('Введена некорректная ссылка.')
   })
 };
 
