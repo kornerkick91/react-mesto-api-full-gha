@@ -3,31 +3,28 @@ const { urlRegex } = require('./utils/constants');
 
 const getUserByIdValidation = {
   params: Joi.object({
-    userId: Joi.string().hex().length(24).required()
-      .message('Введен некорректный id.'),
+    userId: Joi.string().hex().length(24).message('Введен некорректный id.')
   })
 };
 
 const updateProfileValidation = {
   body: Joi.object({
-    name: Joi.string().min(2).max(30).required()
-      .messages({
-        'string.min': 'Поле "Имя" должно содержать не менee 2 символов.',
-        'string.max': 'Поле "Имя" должно содержать не болee 30 символов.',
-        'any.required': 'Поле "Имя" должно быть заполнено.'
-      }),
-    about: Joi.string().min(2).max(30).required()
-      .messages({
-        'string.min': 'Поле "Род деятельности" должно содержать не менее 2 символов.',
-        'string.max': 'Поле "Род деятельности" должно содержать не более 30 символов.',
-        'any.required': 'Поле "Род деятельности" должно быть заполнено.'
-      })
+    name: Joi.string().min(2).max(30).messages({
+      'string.min': 'Поле "Имя" должно содержать не менee 2 символов.',
+      'string.max': 'Поле "Имя" должно содержать не болee 30 символов.',
+      'any.required': 'Поле "Имя" должно быть заполнено.'
+    }),
+    about: Joi.string().min(2).max(30).messages({
+      'string.min': 'Поле "Род деятельности" должно содержать не менее 2 символов.',
+      'string.max': 'Поле "Род деятельности" должно содержать не более 30 символов.',
+      'any.required': 'Поле "Род деятельности" должно быть заполнено.'
+    })
   })
 };
 
 const updateAvatarValidation = {
   body: Joi.object({
-    avatar: Joi.string().regex(urlRegex).required().message('Введена некорректная ссылка.')
+    avatar: Joi.string().regex(urlRegex).message('Введена некорректная ссылка.')
   })
 };
 
@@ -36,37 +33,35 @@ const createCardValidation = {
     name: Joi.string()
       .min(2)
       .max(30)
-      .required()
       .messages({
         'string.min': 'Название карточки должно содержать не менее 2 символов.',
         'string.max': 'Название карточки должно содержать не более 30 символов.',
         'any.required': 'Название карточки должно быть заполнено.'
-      }),
+      })
+      .required(),
     link: Joi.string()
       .regex(urlRegex)
-      .required()
       .messages({
         'string.dataUri': 'Введена некорректная ссылка.',
         'any.required': 'Название карточки должно быть заполнено.'
-      }),
+      })
+      .required(),
   })
 };
 
 const deleteCardValidation = {
   params: Joi.object({
-    cardId: Joi.string().hex().length(24).required()
-      .messages({
-        'string.hex': 'Введен некорректный id.'
-      }),
+    cardId: Joi.string().hex().length(24).messages({
+      'string.hex': 'Введен некорректный id.'
+    }),
   })
 };
 
 const likeCardValidation = {
   params: Joi.object({
-    cardId: Joi.string().hex().length(24).required()
-      .messages({
-        'string.hex': 'Введен некорректный id.'
-      }),
+    cardId: Joi.string().hex().length(24).messages({
+      'string.hex': 'Введен некорректный id.'
+    }),
   })
 };
 
@@ -103,7 +98,7 @@ const signupValidation = {
       'string.max': 'Поле "Род деятельности" должно содержать не более 30 символов.',
       'any.required': 'Поле "Род деятельности" должно быть заполнено.'
     }),
-    avatar: Joi.string().regex(urlRegex).messages('Введена некорректная ссылка.')
+    avatar: Joi.string().regex(urlRegex).message('Введена некорректная ссылка.')
   })
 };
 
